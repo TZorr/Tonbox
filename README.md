@@ -7,7 +7,7 @@ An eight-channel drum synth for macOS: AU (aumu/Tnbx/Tzor), VST3 and a standalon
 
 Each channel also has three sends into FMBox's effects: reverb, delay (tempo-synced) and modulation. Click a pad at the bottom to hear the channel, then edit it above.
 
-Family: [Kitbox](https://github.com/TZorr/Kitbox), [FMBox](https://github.com/TZorr/FMBox), [Rackbox](https://github.com/TZorr/Rackbox), [Rackbox Plus](https://github.com/TZorr/RackboxPlus), [Chordbox](https://github.com/TZorr/Chordbox), [Transmute](https://github.com/TZorr/Transmute).
+Family: [Kitbox](https://github.com/TZorr/Kitbox), [FMBox](https://github.com/TZorr/FMBox), [Rackbox](https://github.com/TZorr/Rackbox), [Rackbox Plus](https://github.com/TZorr/RackboxPlus), [Chordbox](https://github.com/TZorr/Chordbox), [Transmute](https://github.com/TZorr/Transmute), [Clearbox](https://github.com/TZorr/Clearbox).
 
 <img src="screenshot.png" width="700" alt="Tonbox">
 
