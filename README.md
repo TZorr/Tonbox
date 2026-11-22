@@ -13,6 +13,14 @@ Family: [Kitbox](https://github.com/TZorr/Kitbox), [FMBox](https://github.com/TZ
 
 <img src="screenshot-dark.png" width="700" alt="Tonbox with the dark panel">
 
+## Install
+
+Download `Tonbox.0.8.0.pkg` from
+[Releases](https://github.com/TZorr/Tonbox/releases) and run it; choose AU, VST3 or both - they go into `/Library/Audio/Plug-Ins`. Apple Silicon, macOS
+26.5 or later. The installer is unsigned, so Gatekeeper refuses it at first:
+right-click it and choose Open, or allow it under System Settings › Privacy &
+Security.
+
 ## Channels
 
 | Section   | Controls |
@@ -71,4 +79,4 @@ This needs JUCE at `~/JUCE` and CMake/Ninja (see `Scripts/build.sh`).
 
 ## License
 
-AGPL-3.0, see LICENSE.
+AGPL-3.0, see LICENSE. Third-party notices, JUCE among them, are in THIRD_PARTY_NOTICES.md.

@@ -29,5 +29,7 @@ code. The send effects (`Source/Engine/Fx`) come from FMBox and are shared
 with its siblings Kitbox and Rackbox. The frequency shifter follows ideas
 published in Signalsmith Audio's open-source DSP, but was written
 independently: no code or tuned constants were copied; its Hilbert allpass
-is designed by `Scripts/HilbertDesign.cpp`. No other library is linked, and
+was designed for Rackbox by its
+[`Scripts/HilbertDesign.cpp`](https://github.com/TZorr/Rackbox/blob/main/Scripts/HilbertDesign.cpp).
+No other library is linked, and
 nothing is downloaded at build or run time.
