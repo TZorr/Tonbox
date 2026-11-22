@@ -1,0 +1,55 @@
+//
+//  ChoiceButtons.h
+//  Tonbox (copied from Rackbox Plus)
+//
+//  A row of flat buttons of which exactly one is lit: Kitbox's BYPASS button,
+//  repeated, as a stepped selector.
+//
+//  It replaced two stepped knobs (a block's Type and Subtype). A knob makes you
+//  turn through the options to see them; a row shows every option at once and
+//  is one click from any of them, which is the better shape for a choice of
+//  three or four names. The component holds no parameter of its own: the panel
+//  tells it what to show (setLabels, setSelected) and hears the click through
+//  onSelect, so the parameter stays the single source of truth.
+//
+//  Labels are kept as given and upper-cased only when drawn, so the panel can
+//  read back "Ping-Pong" rather than "PING-PONG".
+//
+//  Since 0.8.0 (the Kitbox-Look mockup) the lit segment fills with its
+//  section's zone colour, the others are dark fields with a hairline.
+//
+
+#pragma once
+
+#include <juce_gui_basics/juce_gui_basics.h>
+
+#include "Palette.h"
+
+class ChoiceButtons : public juce::Component
+{
+public:
+    std::function<void (int)> onSelect;
+
+    void setLabels (const juce::StringArray& newLabels);
+    void setSelected (int index);
+
+    /** The section's colour zone: the lit segment's fill. */
+    void setZone (Palette::ZoneId zoneToUse) { zone = zoneToUse; repaint(); }
+
+    juce::String getSelectedText() const;
+
+    void paint (juce::Graphics&) override;
+    void mouseDown (const juce::MouseEvent&) override;
+    void mouseMove (const juce::MouseEvent&) override;
+    void mouseExit (const juce::MouseEvent&) override;
+
+private:
+    juce::Rectangle<float> buttonBounds (int index) const;
+    int indexAt (juce::Point<int>) const;
+
+    juce::StringArray labels;
+    int selected = -1, hovered = -1;
+    Palette::ZoneId zone = Palette::ZoneId::none;
+
+    static constexpr float gap = 3.0f;
+};
