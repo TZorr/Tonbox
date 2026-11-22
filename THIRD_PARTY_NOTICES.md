@@ -6,9 +6,10 @@ from JUCE, below.
 
 ## JUCE
 
-- **What:** the JUCE 9 framework (audio plugin client, GUI).
-  Not included in this repository - `CMakeLists.txt` expects it at `~/JUCE`
-  (or a path passed with `-DJUCE_PATH`) and links it as an external framework.
+- **What:** the JUCE 9 framework (audio plugin client, audio and DSP
+  modules, GUI). Not included in this repository - `CMakeLists.txt` expects
+  its source at `~/JUCE` (or a path passed with `-DJUCE_PATH`) and builds it
+  along with the plugin.
 - **Copyright:** © Raw Material Software Limited - <https://juce.com>.
 - **License:** JUCE 9 is dual-licensed. This project uses JUCE's free tier,
   the GNU Affero General Public License, version 3 (AGPLv3). Because JUCE is
@@ -24,12 +25,20 @@ from JUCE, below.
 ## Everything else
 
 The synthesis engine (oscillator, pitch modulation, filtered noise and its
-envelopes, mix, distortion, EQ, level and pan) and the panel are Tonbox's own
-code. The send effects (`Source/Engine/Fx`) come from FMBox and are shared
-with its siblings Kitbox and Rackbox. The frequency shifter follows ideas
-published in Signalsmith Audio's open-source DSP, but was written
-independently: no code or tuned constants were copied; its Hilbert allpass
-was designed for Rackbox by its
+envelopes, mix, distortion, EQ, level and pan) is Tonbox's own code. The
+send effects (`Source/Engine/Fx`) come from FMBox and are shared with its
+siblings Kitbox and Rackbox; parts of the panel - the pads, the display, the
+type buttons, the knob and the palette - come from FMBox, Kitbox and Rackbox
+Plus. All of them are by the same author and under the same licence.
+
+The overdrive's and fuzz's antiderivative anti-aliasing and the frequency
+shifter follow ideas published in Signalsmith Audio's open-source DSP, but
+were written independently: no code or tuned constants were copied. The
+shifter's Hilbert allpass was designed for Rackbox by its
 [`Scripts/HilbertDesign.cpp`](https://github.com/TZorr/Rackbox/blob/main/Scripts/HilbertDesign.cpp).
-No other library is linked, and
-nothing is downloaded at build or run time.
+Two effects implement published algorithms: the plate is Jon Dattorro's
+reverb from "Effect Design, Part 1" (J. Audio Eng. Soc., 1997), with the
+delay lengths and output taps the paper gives, and the anti-aliasing follows
+Parker, Zavalishin and Le Bivic (DAFx 2016).
+
+No other library is linked, and nothing is downloaded at build or run time.
